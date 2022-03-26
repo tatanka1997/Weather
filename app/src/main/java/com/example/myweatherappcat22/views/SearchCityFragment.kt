@@ -29,12 +29,12 @@ class SearchCityFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+        (activity as AppCompatActivity).supportActionBar?.hide()
     }
 
     override fun onStop() {
         super.onStop()
-        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+        (activity as AppCompatActivity).supportActionBar?.show()
     }
     private val binding by lazy{
         FragmentSearchCityBinding.inflate(layoutInflater)

@@ -32,7 +32,7 @@ class ForecastFragment : BaseFragment(), Listener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-          cityName = it.getString("city")!!
+          cityName = it.getString("city") ?: "Atlanta"
         }
     }
 
