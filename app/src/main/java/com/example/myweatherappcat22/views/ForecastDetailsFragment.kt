@@ -28,12 +28,12 @@ class ForecastDetailsFragment : Fragment() {
         FragmentForecastDetailsBinding.inflate(layoutInflater)
     }
 
-    private lateinit var forecast: Main
+    private var forecast: Main? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-           forecast=it.getParcelable("forecast")!!
+           forecast = it.getParcelable("forecast")
         }
     }
 
@@ -42,10 +42,10 @@ class ForecastDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding.temp.text=String.format("%.2f",(forecast.temp-273.15)*1.8 + 32) + " F"
-        binding.feelsLike.text=String.format("%.2f",(forecast.feelsLike-273.15)*1.8 + 32) + " F"
-
-
+        forecast?.let {
+            binding.temp.text = String.format("%.2f",(it.temp-273.15)*1.8 + 32, " F")
+            binding.feelsLike.text = String.format("%.2f",(it.feelsLike-273.15)*1.8 + 32, " F")
+        }
 
         return binding.root
     }
